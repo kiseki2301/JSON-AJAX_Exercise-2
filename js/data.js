@@ -11,7 +11,7 @@ ourRequest.send();
 
 
 function displayInfo(data) {  //giá trị nhận ở đây sẽ là object
-    document.getElementById("pet-count").innerHTML= 
+    document.getElementById("pet-page").innerHTML= 
     `<h1>Pets (${data.length} results)</h1> 
     
     ${data.map(petTemplate).join(" ")}`//xuất giá trị trong JSON ra dưới dạng string, ko có dấu phẩy ngăn cách 
@@ -23,10 +23,11 @@ function petTemplate(pet){
     return `
         <div class="animals"> 
             <img class="pet-photo" src= "${pet.photo}">
-            <h2> ${pet.name} <span> (${pet.species}) </span> </h2>
-            <p><b>Age:</b> ${calAge(pet.birthyear)}</p>
-            <h4>Favorite Foods:</h4><ul>${showFavFood(pet.foods.likes)}</ul>
-        
+            <div>
+                <h2> ${pet.name} <span> (${pet.species}) </span> </h2>
+                <p><b>Age:</b> ${calAge(pet.birthyear)}</p>
+                <ul>Favorite Foods: ${showFavFood(pet.foods.likes)}</ul>
+            </div>
         </div>` 
 }
 
